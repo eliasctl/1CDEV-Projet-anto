@@ -2,12 +2,12 @@
 #include <stdlib.h>
 
 int main() {
-    int tableau[1][4] = {{0, 1, 1, 1}};
-    int tableaucouleur[1][4] = {{34, 0, 0, 0}}; // 34 = bleu ; 31 = rouge ; 32 = vert ; 33 = jaune
-    int dx = 0;
+    int tableau[3][3] = {{-1, -1, 1}, {1, 1, 1}, {0, -1, -1}};
+    int tableaucouleur[3][3] = {{0, 0, 0}, {0, 0, 0}, {34, 0, 0}}; // 34 = bleu ; 31 = rouge ; 32 = vert ; 33 = jaune
+    int dx = 2;
     int dy = 0;
-    int x = 1;
-    int y = 4;
+    int x = 3;
+    int y = 3;
     int px = dx;
     int py = dy;
     int dpx = px;
