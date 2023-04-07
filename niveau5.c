@@ -1,13 +1,15 @@
+
+
 #include <stdio.h>
 #include <stdlib.h>
 
 int main() {
-    int tableau[1][4] = {{0, 1, 1, 1}};
-    int tableaucouleur[1][4] = {{34, 0, 0, 0}}; // 34 = bleu ; 31 = rouge ; 32 = vert ; 33 = jaune
-    int dx = 0;
-    int dy = 0;
-    int x = 1;
-    int y = 4;
+    int tableau[4][3] = {{1, 1, 1}, {1, 0, 1}, {1, -1, -1}, {1, 1, 1}};
+    int tableaucouleur[4][3] = {{0, 0, 0}, {0, 34, 0}, {0, 0, 0}, {0,0,0}}; // 34 = bleu ; 31 = rouge ; 32 = vert ; 33 = jaune
+    int dx = 1;
+    int dy = 1;
+    int x = 4;
+    int y = 3;
     int px = dx;
     int py = dy;
     int dpx = px;

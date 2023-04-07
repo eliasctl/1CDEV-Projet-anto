@@ -1,13 +1,13 @@
-// pas fini
+
 
 #include <stdio.h>
 #include <stdlib.h>
 
 int main() {
-    int tableau[3][3] = {{-1, -1, 1}, {1, 1, 1}, {0, -1, -1}};
-    int tableaucouleur[3][3] = {{0, 0, 0}, {0, 0, 0}, {34, 0, 0}}; // 34 = bleu ; 31 = rouge ; 32 = vert ; 33 = jaune
+    int tableau[3][3] = {{1, 1, 1}, {1, -1, 1}, {1, -1, 0}};
+    int tableaucouleur[3][3] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 34}}; // 34 = bleu ; 31 = rouge ; 32 = vert ; 33 = jaune
     int dx = 2;
-    int dy = 0;
+    int dy = 2;
     int x = 3;
     int y = 3;
     int px = dx;
@@ -35,7 +35,7 @@ int main() {
                     printf("\033[0m");
                 }
             }
-            printf("\n");
+            printf("\n\n");
         }
         printf("\nChoisissez une direction (H, B, G, D) : ");
         printf("\nEffacer le dernier coup (E) : ");

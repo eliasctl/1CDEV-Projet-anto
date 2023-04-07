@@ -33,7 +33,7 @@ int main() {
                     printf("\033[0m");
                 }
             }
-            printf("\n");
+            printf("\n\n");
         }
         printf("\nChoisissez une direction (H, B, G, D) : ");
         printf("\nEffacer le dernier coup (E) : ");

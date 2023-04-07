@@ -1,13 +1,21 @@
+
+
 #include <stdio.h>
 #include <stdlib.h>
 
 int main() {
-    int tableau[1][4] = {{0, 1, 1, 1}};
-    int tableaucouleur[1][4] = {{34, 0, 0, 0}}; // 34 = bleu ; 31 = rouge ; 32 = vert ; 33 = jaune
-    int dx = 0;
-    int dy = 0;
-    int x = 1;
-    int y = 4;
+    int tableau[5][5] = {
+        {1, 1, 1, 1, 1}, 
+        {1, -1, -1, -1, -1}, 
+        {1, -1, 1, 1, 1}, 
+        {1, -1, -1, -1, 1}, 
+        {1, 1, 1, 1, 1}
+        };
+    int tableaucouleur[5][5] = {{0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 34, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}  }; // 34 = bleu ; 31 = rouge ; 32 = vert ; 33 = jaune
+    int dx = 2;
+    int dy = 2;
+    int x = 5;
+    int y = 5;
     int px = dx;
     int py = dy;
     int dpx = px;

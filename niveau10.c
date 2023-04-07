@@ -1,13 +1,16 @@
+
+
 #include <stdio.h>
 #include <stdlib.h>
 
-int main() {
-    int tableau[1][4] = {{0, 1, 1, 1}};
-    int tableaucouleur[1][4] = {{34, 0, 0, 0}}; // 34 = bleu ; 31 = rouge ; 32 = vert ; 33 = jaune
-    int dx = 0;
+int main()
+{
+    int tableau[4][2] = {{2,-1},{1,1},{1,1},{0,-1}};
+    int tableaucouleur[3][2] = {{0,0},{0,0},{0,0},{34,0}}; // 34 = bleu ; 31 = rouge ; 32 = vert ; 33 = jaune
+    int dx = 4;
     int dy = 0;
-    int x = 1;
-    int y = 4;
+    int x = 4;
+    int y = 2;
     int px = dx;
     int py = dy;
     int dpx = px;
@@ -17,19 +20,28 @@ int main() {
     while (end == 0)
     {
         printf("\n");
-        for (int i = 0; i < x; i++) {
-            for (int j = 0; j < y; j++) {
-                if (tableaucouleur[i][j] != 0) {
+        for (int i = 0; i < x; i++)
+        {
+            for (int j = 0; j < y; j++)
+            {
+                if (tableaucouleur[i][j] != 0)
+                {
                     printf("\033[0;%dm", tableaucouleur[i][j]);
                 }
-                if (tableau[i][j] == 0) {
+                if (tableau[i][j] == 0)
+                {
                     printf(" X ");
-                } else if (tableau[i][j] == -1) {
+                }
+                else if (tableau[i][j] == -1)
+                {
                     printf("   ");
-                } else {
+                }
+                else
+                {
                     printf(" %d ", tableau[i][j]);
                 }
-                if (tableaucouleur[i][j] != 0) {
+                if (tableaucouleur[i][j] != 0)
+                {
                     printf("\033[0m");
                 }
             }
@@ -46,87 +58,123 @@ int main() {
         switch (m)
         {
         case 'H':
-            if (px > 0) {
-                if (tableau[px - 1][py] >= tableau[px][py] && tableaucouleur[px - 1][py] == 0) {
+            if (px > 0)
+            {
+                if (tableau[px - 1][py] >= tableau[px][py] && tableaucouleur[px - 1][py] == 0)
+                {
                     dpx = px;
                     dpy = py;
                     px = px - 1;
                     tableaucouleur[px][py] = tableaucouleur[dpx][dpy];
-                } else {
+                }
+                else
+                {
                     printf("\nVous ne pouvez pas aller plus haut");
                 }
-            } else {
+            }
+            else
+            {
                 printf("\nVous ne pouvez pas aller plus haut");
             }
             break;
         case 'B':
-            if (px < x - 1) {
-                if (tableau[px + 1][py] >= tableau[px][py] && tableaucouleur[px + 1][py] == 0) {
+            if (px < x - 1)
+            {
+                if (tableau[px + 1][py] >= tableau[px][py] && tableaucouleur[px + 1][py] == 0)
+                {
                     dpx = px;
                     dpy = py;
                     px = px + 1;
                     tableaucouleur[px][py] = tableaucouleur[dpx][dpy];
-                } else {
+                }
+                else
+                {
                     printf("\nVous ne pouvez pas aller plus bas");
                 }
-            } else {
+            }
+            else
+            {
                 printf("\nVous ne pouvez pas aller plus bas");
             }
             break;
         case 'G':
-            if (py > 0) {
-                if (tableau[px][py - 1] >= tableau[px][py] && tableaucouleur[px][py - 1] == 0) {
+            if (py > 0)
+            {
+                if (tableau[px][py - 1] >= tableau[px][py] && tableaucouleur[px][py - 1] == 0)
+                {
                     dpx = px;
                     dpy = py;
                     py = py - 1;
                     tableaucouleur[px][py] = tableaucouleur[dpx][dpy];
-                } else {
+                }
+                else
+                {
                     printf("\nVous ne pouvez pas aller plus à gauche");
                 }
-            } else {
+            }
+            else
+            {
                 printf("\nVous ne pouvez pas aller plus à gauche");
             }
             break;
         case 'D':
-            if (py < y - 1) {
-                if (tableau[px][py + 1] >= tableau[px][py] && tableaucouleur[px][py + 1] == 0) {
+            if (py < y - 1)
+            {
+                if (tableau[px][py + 1] >= tableau[px][py] && tableaucouleur[px][py + 1] == 0)
+                {
                     dpx = px;
                     dpy = py;
                     py = py + 1;
                     tableaucouleur[px][py] = tableaucouleur[dpx][dpy];
-                } else {
+                }
+                else
+                {
                     printf("\nVous ne pouvez pas aller plus à droite");
                 }
-            } else {
+            }
+            else
+            {
                 printf("\nVous ne pouvez pas aller plus à droite");
             }
             break;
         case 'E':
-            if (tableau[px][py]!=0 && (px != dpx || py != dpy)) {
+            if (tableau[px][py] != 0 && (px != dpx || py != dpy))
+            {
                 tableaucouleur[px][py] = 0;
                 px = dpx;
                 py = dpy;
-            } else {
+            }
+            else
+            {
                 printf("\nVous ne pouvez pas effacer le dernier coup");
             }
             break;
         case 'C':
-            if (tableau[px][py]!=0) {
-                for (int i = 0; i < x; i++) {
-                    for (int j = 0; j < y; j++) {
-                        if (tableaucouleur[i][j] == tableaucouleur[px][py] && tableau[i][j] != 0) {
+            if (tableau[px][py] != 0)
+            {
+                for (int i = 0; i < x; i++)
+                {
+                    for (int j = 0; j < y; j++)
+                    {
+                        if (tableaucouleur[i][j] == tableaucouleur[px][py] && tableau[i][j] != 0)
+                        {
                             tableaucouleur[i][j] = 0;
                         }
                     }
                 }
-            } else {
+            }
+            else
+            {
                 printf("\nVous ne pouvez pas effacer la chaine de couleur");
             }
             break;
         case 'R':
-            for (int i = 0; i < x; i++) {
-                for (int j = 0; j < y; j++) {
-                    if (tableau[i][j] > 0){
+            for (int i = 0; i < x; i++)
+            {
+                for (int j = 0; j < y; j++)
+                {
+                    if (tableau[i][j] > 0)
+                    {
                         tableaucouleur[i][j] = 0;
                     }
                 }
@@ -137,9 +185,12 @@ int main() {
             dpy = py;
             break;
         case 'O':
-            for (int i = 0; i < x; i++) {
-                for (int j = 0; j < y; j++) {
-                    if (tableaucouleur[i][j] == 34) {
+            for (int i = 0; i < x; i++)
+            {
+                for (int j = 0; j < y; j++)
+                {
+                    if (tableaucouleur[i][j] == 34)
+                    {
                         px = i;
                         py = j;
                         dpx = px;
@@ -149,9 +200,12 @@ int main() {
             }
             break;
         case 'L':
-            for (int i = 0; i < x; i++) {
-                for (int j = 0; j < y; j++) {
-                    if (tableaucouleur[i][j] == 31) {
+            for (int i = 0; i < x; i++)
+            {
+                for (int j = 0; j < y; j++)
+                {
+                    if (tableaucouleur[i][j] == 31)
+                    {
                         px = i;
                         py = j;
                         dpx = px;
@@ -161,9 +215,12 @@ int main() {
             }
             break;
         case 'P':
-            for (int i = 0; i < x; i++) {
-                for (int j = 0; j < y; j++) {
-                    if (tableaucouleur[i][j] == 32) {
+            for (int i = 0; i < x; i++)
+            {
+                for (int j = 0; j < y; j++)
+                {
+                    if (tableaucouleur[i][j] == 32)
+                    {
                         px = i;
                         py = j;
                         dpx = px;
@@ -173,9 +230,12 @@ int main() {
             }
             break;
         case 'M':
-            for (int i = 0; i < x; i++) {
-                for (int j = 0; j < y; j++) {
-                    if (tableaucouleur[i][j] == 33) {
+            for (int i = 0; i < x; i++)
+            {
+                for (int j = 0; j < y; j++)
+                {
+                    if (tableaucouleur[i][j] == 33)
+                    {
                         px = i;
                         py = j;
                         dpx = px;
@@ -188,9 +248,12 @@ int main() {
             break;
         }
         end = 1;
-        for (int i = 0; i < x; i++) {
-            for (int j = 0; j < y; j++) {
-                if (tableau[i][j] > 0 && tableaucouleur[i][j] == 0) {
+        for (int i = 0; i < x; i++)
+        {
+            for (int j = 0; j < y; j++)
+            {
+                if (tableau[i][j] > 0 && tableaucouleur[i][j] == 0)
+                {
                     end = 0;
                 }
             }
